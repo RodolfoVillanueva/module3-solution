@@ -4,7 +4,7 @@
       <div class="caption">
         <h4>{{ item.name }} <span >{{ item.short_name }}</span></h4>
         <p>
-          <span > S {{ item.price_small | currency }}</span> <span > L {{ item.price_large | currency }}</span>
+          <span > Price Small: {{ item.price_small | currency }}</span> <span > Price Large: {{ item.price_large | currency }}</span>
         </p>
         <p>{{ item.description }}</p>
         <button class="btn btn-danger btn-sm" ng-click="onRemove({itemIndex: $index})">Don't want this one!</button>
