@@ -64,7 +64,6 @@
           .then(checkResponse);
           console.log('Entro getMa..');
           console.log(narrowItDown.found);
-          narrowItDown.isLoading = false;
       } else {
         console.log('no encontro..');
         narrowItDown.found = [];
@@ -87,7 +86,7 @@
     function checkResponse(response) {
       console.log('Entro checkResponse..');
       console.log(response);
-      //resetSearch();
+      resetSearch();
       narrowItDown.found = response;
       if(!(narrowItDown.found.length > 0)) {
         narrowItDown.shouldDisplayMessage = true;
