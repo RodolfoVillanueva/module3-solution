@@ -8,11 +8,8 @@
     .directive('foundItems', foundItems)
     .directive('itemsLoaderIndicator', itemsLoaderIndicator)
     .constant('API', {
-      url: 'https://davids-restaurant.herokuapp.com',
-      endpoint: {
-        items: '/menu_items.json'
-      }
-    });
+      url: 'https://davids-restaurant.herokuapp.com/menu_items.json'
+      });
 
   NarrowItDownController.$inject = ['MenuSearchService'];
   MenuSearchService.$inject = ['$http', '$filter', 'API'];
@@ -98,7 +95,7 @@
   function MenuSearchService($http, $filter, API) {
     var menuSearch = this;
     menuSearch.getMatchedMenuItems = function(searchTerm) {
-      return $http.get(API.url + API.endpoint.items)
+      return $http.get(API.url)
         .then(function(response) {
           var foundItems = $filter('filter')(response.data.menu_items, {description: searchTerm});
           foundItems = $filter('orderBy')(foundItems, 'name');
